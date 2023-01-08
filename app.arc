@@ -5,6 +5,9 @@ ottos-filmklubb-5c9f
 region
   eu-north-1
 
+profile
+  otto
+
 @http
 /*
   method any
