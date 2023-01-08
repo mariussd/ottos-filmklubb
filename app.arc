@@ -1,6 +1,10 @@
 @app
 ottos-filmklubb-5c9f
 
+@aws
+region
+  eu-north-1
+
 @http
 /*
   method any
