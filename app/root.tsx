@@ -4,7 +4,15 @@ import type {
   MetaFunction,
 } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { Links, Meta } from "@remix-run/react";
+import {
+  Link,
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+} from "@remix-run/react";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { getUser } from "./session.server";
@@ -41,12 +49,10 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
-        <h1>Ottos filmklubb</h1>
-        <p>Nå er vi altså oppe og kjører</p>
-        <h2>Når blir det film?</h2>
-        <p>Vi får se :-P</p>
-        <h3>Kan jeg ta med en venn?</h3>
-        <p>Der er du god</p>
+        <Outlet />
+        <ScrollRestoration />
+        <Scripts />
+        <LiveReload />
       </body>
     </html>
   );
