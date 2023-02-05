@@ -47,12 +47,12 @@ export function ErrorBoundary({ error }: { error: Error }) {
   return (
     <html>
       <head>
-        <title>Something weird happened...</title>
+        <title>Oh no!</title>
         <Meta />
         <Links />
       </head>
       <body>
-        <p>Sjekk konsollen, kis.</p>
+        <p>Sjekk konsollen, kis</p>
         <Scripts />
       </body>
     </html>
