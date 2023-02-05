@@ -5,7 +5,6 @@ import type {
 } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
-  Link,
   Links,
   LiveReload,
   Meta,
@@ -21,13 +20,13 @@ export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: tailwindStylesheetUrl },
     // NOTE: Architect deploys the public directory to /_static/
-    { rel: "icon", href: "/_static/favicon.ico" },
+    { rel: "icon", href: "/_static/favicon-96x96.png" },
   ];
 };
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "Remix Notes",
+  title: "Ottos filmklubb",
   viewport: "width=device-width,initial-scale=1",
 });
 
