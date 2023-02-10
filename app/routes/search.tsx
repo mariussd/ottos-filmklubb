@@ -27,16 +27,17 @@ export async function loader({ request }: LoaderArgs) {
 
   const config = await configFetch.json();
 
-  const prunedData: Movie[] = data
-    ? data.results.map((movie) => {
-        return {
-          id: movie.id,
-          title: movie.title,
-          img: movie.poster_path,
-          releaseYear: movie.release_date.slice(0, 4),
-        };
-      })
-    : [];
+  const prunedData: Movie[] =
+    data && data.results
+      ? data.results.map((movie) => {
+          return {
+            id: movie.id,
+            title: movie.title,
+            img: movie.poster_path,
+            releaseYear: movie.release_date.slice(0, 4),
+          };
+        })
+      : [];
 
   return json({
     movies: prunedData,
