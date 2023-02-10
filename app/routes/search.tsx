@@ -48,11 +48,8 @@ const Search = () => {
     movies,
     imageBaseUrl,
     imageSize,
-  }: { movies: Movie[]; imageBaseUrl?: string; imageSize?: string } =
+  }: { movies?: Movie[]; imageBaseUrl?: string; imageSize?: string } =
     useLoaderData<typeof loader>();
-  console.log("res", movies);
-  console.log("res", imageBaseUrl);
-  console.log("res", imageSize);
   return (
     <div className="flex w-full flex-col items-center">
       <header className="w-full bg-slate-200 p-2 underline underline-offset-2">
@@ -105,5 +102,10 @@ const Search = () => {
     </div>
   );
 };
+
+export function ErrorBoundary({ error }: { error: Error }) {
+  console.error(error);
+  return <p>{error.message}</p>;
+}
 
 export default Search;
