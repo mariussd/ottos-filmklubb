@@ -41,8 +41,8 @@ export async function loader({ request }: LoaderArgs) {
 
   return json({
     movies: prunedData,
-    imageBaseUrl: config?.images.secure_base_url ?? "",
-    imageSize: config?.images.logo_sizes[3] ?? "",
+    imageBaseUrl: config?.images?.secure_base_url ?? "",
+    imageSize: config?.images?.logo_sizes[3] ?? "",
   });
 }
 
