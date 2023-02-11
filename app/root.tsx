@@ -45,11 +45,6 @@ export default function App() {
       <body className="h-full">
         <Outlet />
         <ScrollRestoration />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
-          }}
-        />
         <Scripts />
         <LiveReload />
       </body>
