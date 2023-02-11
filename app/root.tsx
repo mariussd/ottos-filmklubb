@@ -7,7 +7,6 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData,
 } from "@remix-run/react";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
@@ -26,16 +25,7 @@ export const meta: MetaFunction = () => ({
   viewport: "width=device-width,initial-scale=1",
 });
 
-export async function loader() {
-  return json({
-    ENV: {
-      TMDB_API_KEY: process.env.TMDB_API_KEY,
-    },
-  });
-}
-
 export default function App() {
-  const data = useLoaderData<typeof loader>();
   return (
     <html lang="en" className="h-full">
       <head>

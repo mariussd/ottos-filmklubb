@@ -51,8 +51,11 @@ const Search = () => {
     movies,
     imageBaseUrl,
     imageSize,
-  }: { movies?: Movie[]; imageBaseUrl?: string; imageSize?: string } =
-    useLoaderData<typeof loader>();
+  }: {
+    movies?: Movie[];
+    imageBaseUrl?: string;
+    imageSize?: string;
+  } = useLoaderData<typeof loader>();
   return (
     <div className="flex w-full flex-col items-center">
       <header className="w-full bg-slate-200 p-2 underline underline-offset-2">
@@ -83,7 +86,7 @@ const Search = () => {
             key={movie.id}
             className="flex basis-1/2 justify-center sm:basis-1/3 lg:basis-1/4 xl:basis-1/6 2xl:basis-52"
           >
-            <div className="mb-10 flex flex-col overflow-hidden rounded-md border border-slate-100 shadow-md">
+            <div className="mb-10 flex cursor-pointer flex-col overflow-hidden rounded-md border border-slate-100 shadow-md transition duration-500 ease-in-out hover:scale-105">
               <img
                 src={`${imageBaseUrl}${imageSize}/${movie.img}`}
                 alt={movie.title}
