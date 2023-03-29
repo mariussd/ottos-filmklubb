@@ -21,6 +21,15 @@ profile
   method get
   src server
 
+/login
+  method get
+  src server
+
+/auth/*
+  method any
+  src server
+
+
 /
   method get
   src server
