@@ -9,9 +9,9 @@ profile
   otto
 
 @http
-/*
-  method any
-  src server
+get /
+get /vote
+get /search
 
 @static
 
