@@ -9,9 +9,17 @@ profile
   otto
 
 @http
-get /
-get /vote
-get /search
+/vote
+  method get
+  src server
+
+/search
+  method get
+  src server
+
+/
+  method get
+  src server
 
 @static
 
