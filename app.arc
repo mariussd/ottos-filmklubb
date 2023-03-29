@@ -17,6 +17,10 @@ profile
   method get
   src server
 
+/rate:rateID
+  method get
+  src server
+
 /
   method get
   src server
