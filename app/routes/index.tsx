@@ -11,6 +11,9 @@ export default function Index() {
         <Link className="underline" to={"/search"}>
           Søk
         </Link>
+        <Link className="underline" to={"/rate"}>
+          Rate
+        </Link>
       </nav>
     </main>
   );

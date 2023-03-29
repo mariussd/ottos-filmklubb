@@ -36,6 +36,10 @@ const Vote = () => {
                   </label>
                 ))}
               </div>
+              <div className="flex w-full flex-col items-center">
+                <h1 className="mb-8 text-lg text-blue-400">Big heading!</h1>
+                <p className="text-sm font-thin text-blue-800">Some nice text 🚀</p>
+              </div>
               <button
                 type="submit"
                 name="vote"
