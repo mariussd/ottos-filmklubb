@@ -1,15 +1,12 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/server-runtime";
 import type { LoaderArgs } from "@remix-run/server-runtime";
+import { getMovieById } from "~/services/movie.server";
 
 export const loader = async ({ params }: LoaderArgs) => {
-  const baseURL = `https://api.themoviedb.org/3/`;
-  const tmdbURL =
-    baseURL + `movie/${params.movieId}?api_key=${process.env.TMDB_API_KEY}`;
+  const movie = await getMovieById(params.movieId ?? "");
 
-  const res = await fetch(tmdbURL, { method: "GET" }).then((res) => res.json());
-  console.log(res);
-  return json(res);
+  return json(movie);
 };
 
 const Rate = () => {

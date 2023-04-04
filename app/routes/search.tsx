@@ -2,6 +2,7 @@ import { json } from "@remix-run/node";
 import type { LoaderArgs } from "@remix-run/node";
 import { Form, Link, useLoaderData } from "@remix-run/react";
 import type { Movie, TMDBMovie } from "~/types";
+import { getConfig } from "~/services/tmdb.server";
 
 export async function loader({ request }: LoaderArgs) {
   const url = new URL(request.url);
@@ -12,10 +13,6 @@ export async function loader({ request }: LoaderArgs) {
     `search/movie?api_key=${process.env.TMDB_API_KEY}&query=${
       queryString ?? ""
     }&page=1&include_adult=false`;
-  const configFetch = await fetch(
-    baseURL + `configuration?api_key=${process.env.TMDB_API_KEY}`,
-    { method: "GET" }
-  );
   const res = await fetch(tmdbURL, { method: "GET" });
 
   const data: {
@@ -25,7 +22,7 @@ export async function loader({ request }: LoaderArgs) {
     total_results: number;
   } = await res.json();
 
-  const config = await configFetch.json();
+  const config = await getConfig();
 
   const prunedData: Movie[] =
     data && data.results
@@ -34,6 +31,7 @@ export async function loader({ request }: LoaderArgs) {
             id: movie.id,
             title: movie.title,
             img: movie.poster_path,
+            imgSize: config?.images?.logo_sizes[3]?.replace("w", "") ?? "",
             releaseYear: movie.release_date.slice(0, 4),
           };
         })

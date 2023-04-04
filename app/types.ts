@@ -19,5 +19,6 @@ export type Movie = {
   id: number;
   title: string;
   img: string;
+  imgSize: string;
   releaseYear: string;
 };

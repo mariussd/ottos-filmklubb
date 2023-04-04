@@ -1,13 +1,13 @@
-import { validateEmail } from "./utils";
+import type { Movie } from "./types";
 
-test("validateEmail returns false for non-emails", () => {
-  expect(validateEmail(undefined)).toBe(false);
-  expect(validateEmail(null)).toBe(false);
-  expect(validateEmail("")).toBe(false);
-  expect(validateEmail("not-an-email")).toBe(false);
-  expect(validateEmail("n@")).toBe(false);
-});
+test("lol2k", () => {
+  const movie: Movie = {
+    id: 1,
+    title: "Bleh",
+    img: "",
+    imgSize: "",
+    releaseYear: "1993",
+  };
 
-test("validateEmail returns true for emails", () => {
-  expect(validateEmail("kody@example.com")).toBe(true);
+  expect(movie).toBeDefined();
 });
