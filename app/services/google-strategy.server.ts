@@ -5,8 +5,7 @@ export const googleStrategy = new GoogleStrategy(
     clientID: process.env.GOOGLE_AUTH_CLIENT_ID ?? "",
     clientSecret: process.env.GOOGLE_AUTH_CLIENT_SECRET ?? "",
     callbackURL:
-      process.env.GOOGLE_CALLBACK_URL ??
-      "http://localhost:3000/auth/google/callback",
+      process.env.GOOGLE_AUTH_CALLBACK_URL ?? "https://filmklubb.net",
     scope: ["openid", "profile", "email"],
   },
   async ({ accessToken, refreshToken, extraParams, profile }) => {
